@@ -10,7 +10,7 @@ module Tumbz
         errors = []
         metadata = json.delete(:metadata) || []
 
-        if json[:error].present?
+        if json.is_a?(Hash) and json[:error].present?
           json.delete(:error)
           json.delete(:message)
           errors = [json.delete(:developerMessage)]
