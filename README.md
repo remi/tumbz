@@ -1,6 +1,6 @@
 # Tumbz
 
-This gem allows you to easily use the [Tum.bz API](http://tum.bz/api).
+This gem allows you to easily use the [Tum.bz API](http://tum.bz/api). It’s powered by [Her](https://github.com/remiprev/her).
 
 ## Installation
 
