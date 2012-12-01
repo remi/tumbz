@@ -1,9 +1,12 @@
 # Dependencies
-require "her"
+require "bundler"
+Bundler.require
 
 # Modules
 require "tumbz/version"
+require "tumbz/model"
 require "tumbz/config"
+require "tumbz/middleware/parse"
 require "tumbz/middleware/api_key"
 require "tumbz/middleware/auth"
 
@@ -29,7 +32,7 @@ module Tumbz
       connection.use Tumbz::Middleware::ApiKey, :api_key => options.api_key
       connection.use Tumbz::Middleware::Auth
       connection.use Faraday::Request::UrlEncoded
-      connection.use Her::Middleware::DefaultParseJSON
+      connection.use Tumbz::Middleware::Parse
       connection.use Faraday::Adapter::NetHttp
     end
 

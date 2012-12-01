@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
 
-# Specify your gem's dependencies in tumbz.gemspec
 gemspec
+gem "her", :git => "git://github.com/remiprev/her.git", :branch => "master"
