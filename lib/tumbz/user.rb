@@ -3,6 +3,7 @@ module Tumbz
     include Model
     include Her::Model
     uses_api Tumbz.api
+    custom_get :search
 
     def self.sign_in!(email, password)
       post_raw("auth", :email => email, :password => password) do |parsed_data|
