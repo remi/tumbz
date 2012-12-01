@@ -44,6 +44,8 @@ Other modules are:
 * `Tumbz::Product`
 * `Tumbz::User`
 
+The API wrapper is powered by [Her](https://github.com/remiprev/her), so most of [its documentation](https://github.com/remiprev/her) will be helpful.
+
 ## Contributing
 
 1. Fork it
@@ -51,3 +53,7 @@ Other modules are:
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+# TODO
+
+* OAuth
