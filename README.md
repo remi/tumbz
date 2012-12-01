@@ -46,6 +46,20 @@ Other modules are:
 
 The API wrapper is powered by [Her](https://github.com/remiprev/her), so most of [its documentation](https://github.com/remiprev/her) will be helpful.
 
+## OAuth
+
+Support for OAuth-authenticated calls is supported, but very premitive (not quite thread-safe). Here’s how it works:
+
+```ruby
+Tumbz::User.sign_in!("<email>", "<password>")
+# => true (next calls will be made as the authenticated user)
+
+Tumbz::Review.create(:product_external_id => "tt0458339", :positive => "1", :cat => "movie")
+# => #<Tumbz::Review(reviews/50b9ebd7a9d29c000200af7c) id="50b9ebd7a9d29c000200af7c" positive=true text=""…>
+
+Tumbz::User.sign_out!
+```
+
 ## Contributing
 
 1. Fork it
@@ -53,7 +67,3 @@ The API wrapper is powered by [Her](https://github.com/remiprev/her), so most of
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
-
-# TODO
-
-* OAuth

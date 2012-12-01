@@ -5,10 +5,19 @@ require "her"
 require "tumbz/version"
 require "tumbz/config"
 require "tumbz/middleware/api_key"
+require "tumbz/middleware/auth"
 
 module Tumbz
   def self.api
     @api
+  end
+
+  def self.access_token=(token)
+    @access_token = token
+  end
+
+  def self.access_token
+    @access_token
   end
 
   def self.configure(&blk)
@@ -18,6 +27,7 @@ module Tumbz
     @api = Her::API.new
     @api.setup :url => "http://api.tum.bz/v1/" do |connection|
       connection.use Tumbz::Middleware::ApiKey, :api_key => options.api_key
+      connection.use Tumbz::Middleware::Auth
       connection.use Faraday::Request::UrlEncoded
       connection.use Her::Middleware::DefaultParseJSON
       connection.use Faraday::Adapter::NetHttp
