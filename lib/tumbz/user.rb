@@ -14,6 +14,7 @@ module Tumbz
 
     def self.sign_out!
       Tumbz.access_token = nil
+      Tumbz.access_token.nil?
     end
   end
 end

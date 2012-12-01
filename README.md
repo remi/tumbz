@@ -50,10 +50,16 @@ Support for OAuth-authenticated calls is supported, but very premitive (not quit
 Tumbz::User.sign_in!("<email>", "<password>")
 # => true (next calls will be made as the authenticated user)
 
-Tumbz::Review.create(:product_external_id => "tt0458339", :positive => "1", :cat => "movie")
+review = Tumbz::Review.create(:product_external_id => "tt0458339", :positive => "1", :cat => "movie")
 # => #<Tumbz::Review(reviews/50b9ebd7a9d29c000200af7c) id="50b9ebd7a9d29c000200af7c" positive=true text=""…>
 
 Tumbz::User.sign_out!
+# => true (next calls will be made anonymously)
+
+review = Tumbz::Review.create(:product_external_id => "tt0458339", :positive => "1", :cat => "movie")
+# => #<Tumbz::Review(reviews)>
+review.errors
+# => ["Token is invalid or expired"]
 ```
 
 ## Contributing
