@@ -8,8 +8,8 @@ Gem::Specification.new do |gem|
   gem.version       = Tumbz::VERSION
   gem.authors       = ["Rémi Prévost"]
   gem.email         = ["remi@exomel.com"]
-  gem.description   = %q{TODO: Write a gem description}
-  gem.summary       = %q{TODO: Write a gem summary}
+  gem.description   = %q{Ruby wrapper for the Tum.bz API}
+  gem.summary       = %q{Ruby wrapper for the Tum.bz API}
   gem.homepage      = ""
 
   gem.files         = `git ls-files`.split($/)
