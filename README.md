@@ -29,6 +29,9 @@ That’s it! You’ll then be able to use :
 ```ruby
 Tumbz::User.find("remi")
 # => #<Tumbz::User(users/4f0e32936edcb2000100029d) id="4f0e32936edcb2000100029d" username="remi" profile_url="http://tum.bz/u/remi" firstname="Rémi" lastname="Prévost"…>
+
+Tumbz::Product.search(:q => "office", :cat => "tv")
+# => [#<Tumbz::Product(products/50b4caaac042690002010e1c) id="50b4caaac042690002010e1c" cat="tv" url="http://tum.bz/tv/50b4caaac042690002010e1c/the-offic..." title="The Office (US)" artist=nil external_id="73244" img_thumb=nil img_cover=""…>]
 ```
 
 Other modules are:
@@ -39,6 +42,7 @@ Other modules are:
 * `Tumbz::PartnerLookup`
 * `Tumbz::Product`
 * `Tumbz::User`
+* `Tumbz::UserSuggestion`
 
 The API wrapper is powered by [Her](https://github.com/remiprev/her), so most of [its documentation](https://github.com/remiprev/her) will be helpful.
 

@@ -1,7 +1,7 @@
 module Tumbz
   module Model
     def error?
-      self.respond_to?(:error) and !self.error.nil? and self.error != ""
+      self.errors.any?
     end
   end
 end

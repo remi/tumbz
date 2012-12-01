@@ -42,5 +42,6 @@ module Tumbz
     require "tumbz/partner_lookup"
     require "tumbz/product"
     require "tumbz/user"
+    require "tumbz/user_suggestion"
   end
 end
