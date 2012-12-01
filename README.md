@@ -8,6 +8,10 @@ Add this line to your application's Gemfile:
 
 ```ruby
 gem 'tumbz'
+
+# OR
+
+gem 'tumbz', :git => "git://github.com/remiprev/tumbz.git", :branch => "master"
 ```
 
 And then execute:
