@@ -7,20 +7,12 @@ This gem allows you to easily use the [Tum.bz API](http://tum.bz/api). It’s po
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'tumbz'
-
-# OR
-
 gem 'tumbz', :git => "git://github.com/remiprev/tumbz.git", :branch => "master"
 ```
 
 And then execute:
 
     $ bundle
-
-Or install it yourself as:
-
-    $ gem install tumbz
 
 ## Usage
 
