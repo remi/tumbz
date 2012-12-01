@@ -1,6 +1,5 @@
 # Dependencies
-require "bundler"
-Bundler.require
+require "her"
 
 # Modules
 require "tumbz/version"
@@ -29,9 +28,12 @@ module Tumbz
 
     @api = Her::API.new
     @api.setup :url => "http://api.tum.bz/v1/" do |connection|
+      # Request middleware
       connection.use Tumbz::Middleware::ApiKey, :api_key => options.api_key
       connection.use Tumbz::Middleware::Auth
       connection.use Faraday::Request::UrlEncoded
+
+      # Response middleware
       connection.use Tumbz::Middleware::Parse
       connection.use Faraday::Adapter::NetHttp
     end
