@@ -9,8 +9,6 @@ module Tumbz
       post_raw("auth", :email => email, :password => password) do |parsed_data|
         Tumbz.access_token = parsed_data[:data][:access_token]
       end
-
-      Tumbz.access_token.nil? ? false : true
     end
 
     def self.sign_out!
