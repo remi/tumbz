@@ -74,6 +74,27 @@ review = Tumbz::Review.create(:product_external_id => "tt0458339", :positive => 
 # => #<Tumbz::Review(reviews/50b9ebd7a9d29c000200af7c) id="50b9ebd7a9d29c000200af7c" positive=true text=""…>
 ```
 
+### OAuth in a Web application
+
+Since each request will probably have a different user (and a different `access_token`) it’s better to use some kind of filter to make sure each request gets its own user only. For example, with Ruby on Rails:
+
+```ruby
+class ApplicationController < ActionController::Base
+  around_filter :do_with_tumbz_user
+
+  def do_with_tumbz_user
+    Tumbz::User.sign_in!("<email>", "<password>")
+    # or Tumbz::User.set_access_token!("<access_token>")
+
+    begin
+      yield
+    ensure
+      Tumbz::User.sign_out!
+    end
+  end
+end
+```
+
 ## Contributing
 
 1. Fork it
