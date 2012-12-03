@@ -7,13 +7,13 @@ module Tumbz
 
     def self.sign_in!(email, password)
       post_raw("auth", :email => email, :password => password) do |parsed_data|
-        Tumbz.access_token = parsed_data[:data][:access_token]
+        Thread.current[:tumbz_access_token] = parsed_data[:data][:access_token]
       end
     end
 
     def self.sign_out!
-      Tumbz.access_token = nil
-      Tumbz.access_token.nil?
+      Thread.current[:tumbz_access_token] = nil
+      Thread.current[:tumbz_access_token].nil?
     end
   end
 end
