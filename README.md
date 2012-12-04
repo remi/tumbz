@@ -69,7 +69,7 @@ review.errors
 You don’t need to use `User.sign_in!` each time, you can also set the `access_token` manually (eg. if you store it in a session):
 
 ```ruby
-Tumbz.access_token = "abc123edgfh"
+Tumbz::User.set_access_token!("abc123edgfh")
 review = Tumbz::Review.create(:product_external_id => "tt0458339", :positive => "1", :cat => "movie")
 # => #<Tumbz::Review(reviews/50b9ebd7a9d29c000200af7c) id="50b9ebd7a9d29c000200af7c" positive=true text=""…>
 ```
