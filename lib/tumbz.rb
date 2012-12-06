@@ -14,14 +14,6 @@ module Tumbz
     @api
   end
 
-  def self.access_token=(token)
-    @access_token = token
-  end
-
-  def self.access_token
-    @access_token
-  end
-
   def self.configure(&blk)
     options = OpenStruct.new
     yield(options)
